@@ -73,3 +73,49 @@ c = a * b # 普通乘法
 c_dot = np.dot(a, b) # 矩阵乘法
 c_dot2 = a.dot(b) # 效果相同
 ```
+- 7、生产指定大小的随机矩阵
+```python
+import numpy as np
+
+array = np.random.random((2, 4))
+# 生产一个两行四列的矩阵，元素大小0~1内随机
+
+np.sum(array) # 返回所有元素的和
+np.min(array) # 返回所有元素中最小的元素
+np.max(array) # 返回所有元素中最大的元素
+np.mean(array) # 返回A的平均值
+array.mean() # A的平均值
+
+# 以上四种方法还可以单独对行维度或者列维度进行依次求和，求最小最大值
+# 例如
+np.sum(array, axis=1) # 返回一个列表，每个元素为array中各个行的和，axis=0则为列和
+```
+- 8、矩阵中最大值最小值的索引，以及平均值，中位数
+```python
+import numpy as np
+
+A = np.arange(2, 14).reshape((3,4))
+np.argmin(A) # 返回矩阵A中最小值所在的索引
+np.argmax(A) # 返回矩阵A中最大值所在的索引
+
+np.median(A) # 返回矩阵A的中位数
+
+np.cumsum(A) # 返回A中元素逐个累加的一个列表
+
+np.diff(A) # 返回各个元素之间的差
+
+np.transpose(A) # 矩阵的转置
+print(A.T) # 矩阵的转置
+
+np.clip(A, 5, 9) # 把A中小于5的数字全改为5
+                 # 大于9的数字全改为9
+```
+- 9、转换为一维矩阵
+```python
+import numpy as np
+
+a = np.arange(2, 14).reshape((3,4))
+
+print(a.flatten()) # 把a矩阵重新拉成一维的一个列表
+print(a.flat) # a.flat 返回一个可迭代的对象
+```
